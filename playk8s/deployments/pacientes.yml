@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pacientes-deployment
+  labels:
+    app: pacientes-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-pacientes
+  template:
+    metadata:
+      labels:
+        app: api-pacientes
+    spec:
+      containers:
+      - name: api-medic-pacientes
+        image: leo1897/medic-pacientes
+        ports:
+        - containerPort: 7000
+        command: ["/bin/bash","-c"]
+        args: ["python manage.py migrate && python manage.py runserver 0.0.0.0:7000"]
+        env:
+        - name: DATABASE_NAME
+          value: medic-bd
+        - name: DATABASE_USER
+          value: leonardo
+        - name: DATABASE_HOST
+          value: db-test-free.cdxsrhofpryf.us-east-1.rds.amazonaws.com
+        - name: DATABASE_PASS
+          value: testeo

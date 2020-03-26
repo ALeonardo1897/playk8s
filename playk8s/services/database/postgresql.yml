@@ -1,7 +1,20 @@
+#PostgreSQL Service
 kind: Service
 apiVersion: v1
 metadata:
     name: postgresql
-spec:
-    type: ExternalName
-    externalName: db-test-free.cdxsrhofpryf.us-east-1.rds.amazonaws.com
+Spec:
+ type: ClusterIP
+ ports:
+    - port: 5432
+    targetPort: 5432
+#PostgreSQL EndPoint
+kind: Endpoints
+apiVersion: v1
+metadata:
+    name: postgresql
+subsets:
+    -   addresses:
+        -   ip: 3.223.14.7
+        ports:
+            -   port: 5432

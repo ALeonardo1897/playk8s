@@ -4,10 +4,10 @@ apiVersion: v1
 metadata:
     name: postgresql
 Spec:
- type: ClusterIP
- ports:
-    - port: 5432
-    targetPort: 5432
+    type: ClusterIP
+    ports:
+        - port: 5432
+        targetPort: 5432
 #PostgreSQL EndPoint
 kind: Endpoints
 apiVersion: v1

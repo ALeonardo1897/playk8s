@@ -18,6 +18,6 @@ spec:
     - name: DATABASE_USER
       value: leonardo
     - name: DATABASE_HOST
-      value: postgresql
+      value: AWS-RDS-postgresql
     - name: DATABASE_PASS
       value: testeo

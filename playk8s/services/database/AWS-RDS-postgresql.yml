@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
- name: postgresql
+ name: aws-rds-postgresql
 spec:
  type: ExternalName
  externalName: db-test-free.cdxsrhofpryf.us-east-1.rds.amazonaws.com

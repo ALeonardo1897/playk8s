@@ -5,7 +5,7 @@ metadata:
   labels:
     app: pacientes-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api-pacientes
@@ -27,6 +27,8 @@ spec:
         - name: DATABASE_USER
           value: leonardo
         - name: DATABASE_HOST
-          value: db-test-free.cdxsrhofpryf.us-east-1.rds.amazonaws.com
+          value: aws-rds-postgresql
         - name: DATABASE_PASS
           value: testeo
+        - name: K8S_CLUSTER_IP
+          value: 192.168.99.100

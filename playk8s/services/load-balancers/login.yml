@@ -10,4 +10,3 @@ spec:
     app: login-deployment
   ports:
     - port: 5000
-      targetPort: 8000

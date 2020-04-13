@@ -1,0 +1,7 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: user-db
+spec:
+ type: ExternalName
+ externalName: ec2-52-7-39-178.compute-1.amazonaws.com

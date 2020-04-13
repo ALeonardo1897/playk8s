@@ -1,8 +1,7 @@
-  
 kind: Service
 apiVersion: v1
 metadata:
- name: aws-rds-postgresql
+ name: pacientes-db
 spec:
  type: ExternalName
  externalName: db-test-free.cdxsrhofpryf.us-east-1.rds.amazonaws.com

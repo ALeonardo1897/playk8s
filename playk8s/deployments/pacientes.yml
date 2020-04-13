@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pacientes-deployment
+  name: pacientes-deploy
   labels:
-    app: pacientes-deployment
+    app: pacientes-deploy
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
         app: api-pacientes
     spec:
       containers:
-      - name: api-medic-pacientes
+      - name: medic-pacientes
         image: leo1897/medic-pacientes
         ports:
         - containerPort: 7000
@@ -27,8 +27,12 @@ spec:
         - name: DATABASE_USER
           value: leonardo
         - name: DATABASE_HOST
-          value: aws-rds-postgresql
+          value: pacientes-db
         - name: DATABASE_PASS
           value: testeo
-        - name: K8S_CLUSTER_IP
-          value: 192.168.99.100
+        - name: ALLOWED_HOST
+          value: '*'
+        - name: CORS_ALLOWED_IP
+          value: 'http://anydomain.com'
+        - name: CORS_ALLOWED_ALL
+          value: 'true'

@@ -7,6 +7,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: login-deployment
+    app: api-login
   ports:
     - port: 5000
+      targetPort: 8000

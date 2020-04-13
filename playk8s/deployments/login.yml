@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: login-deployment
+  name: login-deploy
   labels:
-    app: login-deployment
+    app: login-deploy
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
         app: api-login
     spec:
       containers:
-      - name: api-medic-login
+      - name: medic-login
         image: leo1897/medic-login
         ports:
         - containerPort: 8000
@@ -23,13 +23,19 @@ spec:
         args: ["python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
         env:
         - name: DATABASE_NAME
-          value: medic-bd
+          value: dda5h4s6dsde1
         - name: DATABASE_USER
-          value: leonardo
+          value: zjrbxymjtnzmbr
         - name: DATABASE_HOST
-          value: aws-rds-postgresql
+          value: user-db
         - name: DATABASE_PASS
-          value: testeo
-        - name: K8S_CLUSTER_IP
-          value: 192.168.99.100
+          value: 1c8e38a949ec11bf83ac27543ca0028eca59b2d6d67ffdc93885d5168495e4eb
+        - name: ALLOWED_HOST
+          value: '*'
+        - name: CORS_ALLOWED_IP
+          value: 'http://anydomain.com'
+        - name: CORS_ALLOWED_ALL
+          value: 'true'
+
+
 
